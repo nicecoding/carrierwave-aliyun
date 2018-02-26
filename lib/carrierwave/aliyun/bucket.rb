@@ -56,7 +56,7 @@ module CarrierWave
         content = ''
         res = oss_upload_client.get_object(path) { |c| content << c }
         if res
-          return res.merge(body: content)
+          return { object: res, body: content }
         else
           raise 'Get content faild'
         end

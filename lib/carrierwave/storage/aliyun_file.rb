@@ -11,8 +11,8 @@ module CarrierWave
 
       def read
         res = bucket.get(@path)
-        @headers = res.headers.deep_transform_keys { |k| k.underscore.to_sym rescue k }
-        res.body
+        @headers = res[:object].headers.deep_transform_keys { |k| k.underscore.to_sym rescue k }
+        res[:body]
       end
 
       def delete
