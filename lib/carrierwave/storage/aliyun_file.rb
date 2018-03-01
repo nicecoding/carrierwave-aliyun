@@ -54,7 +54,7 @@ module CarrierWave
       end
 
       def empty?
-        headers.blank? rescue true
+        @path.blank? rescue true
       end
 
       private
